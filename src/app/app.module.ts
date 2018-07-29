@@ -6,12 +6,14 @@ import { MaterialLoaderModule } from './materialloader.module';
 
 import { AppComponent } from './app.component';
 import { MenubarComponent } from './menubar/menubar.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MenubarComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
