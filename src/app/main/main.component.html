@@ -8,7 +8,7 @@
       <span>Einstellungen</span>
   </button>
 </div>
-<!-- <app-repository *ngFor="let repo of repositoryService.repos" [data]="repo"></app-repository> -->
+<app-repository *ngFor="let repo of repositoryService.repos" [model]="repo"></app-repository>
 <button class="addRepo" mat-button>
     <mat-icon>add</mat-icon>
     <span>Repo hinzufügen</span>

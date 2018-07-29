@@ -21,6 +21,9 @@ import { MaterialLoaderModule } from '../materialloader.module';
   providers: [
     RepositoryService
   ],
+  exports: [
+    RepositoryComponent
+  ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]

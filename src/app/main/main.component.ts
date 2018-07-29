@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { RepositoryService } from '../repository/repository.service';
+import { RepositoryService } from '../repository/repository.service';
 
 @Component({
   templateUrl: './main.component.html',
@@ -10,7 +10,7 @@ export class MainComponent implements OnInit {
   public refreshInProgress = false;
   public preferences = true;
 
-  constructor(/* public repositoryService: RepositoryService */) { }
+  constructor(public repositoryService: RepositoryService) { }
 
   ngOnInit() {
   }
