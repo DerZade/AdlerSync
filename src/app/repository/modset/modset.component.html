@@ -1,0 +1,20 @@
+<mat-expansion-panel disabled hideToggle [expanded]="expanded ? 'true' : undefined" class="modset">
+
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-radio-button [value]="selected ? 1 : 0" (click)="onSelectClicked($event);"></mat-radio-button>
+      <span>{{model.name}}</span>
+      <button mat-icon-button (click)="expanded = !expanded">
+        <mat-icon>{{expanded ? 'expand_less' : 'expand_more'}}</mat-icon>
+      </button>
+    </mat-panel-title>
+    <mat-panel-description>
+      <span>Aktuell halten</span>
+      <mat-slide-toggle></mat-slide-toggle>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <mat-chip-list>
+    <app-mod *ngFor="let mod of model.mods" [model]="mod"></app-mod>
+  </mat-chip-list>
+</mat-expansion-panel>
