@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { MaterialLoaderModule } from './materialloader.module';
-
+import { RepositoryModule } from './repository/repository.module';
 
 import { AppComponent } from './app.component';
 import { MenubarComponent } from './menubar/menubar.component';
@@ -17,6 +17,7 @@ import { MainComponent } from './main/main.component';
   ],
   imports: [
     BrowserModule,
+    RepositoryModule,
     BrowserAnimationsModule,
     MaterialLoaderModule
   ],
