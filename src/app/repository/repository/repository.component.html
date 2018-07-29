@@ -1,0 +1,244 @@
+<mat-expansion-panel disabled hideToggle expanded class="repository">
+<!-- <mat-expansion-panel disabled hideToggle [expanded]="expanded ? 'true' : undefined" class="repository"> -->
+  <mat-expansion-panel-header>
+  <!--
+    <div class="download-progress" *ngIf="data.state === 'updating'">
+      <div style="width:56%"></div>
+    </div>
+  -->
+    <div class="picture" (click)="expanded = !expanded">
+      <img src={{model.picture}} />
+    </div>
+    <div class="general-info column-wrapper">
+      <div class="type adler-label">
+        <span>
+          Repo
+        </span>
+      </div>
+      <div class="name big-text">
+        {{model.name}}
+      </div>
+      <ng-container [ngSwitch]="model.state">
+        <div class="state update-needed adler-label" *ngSwitchCase="'update-needed'">
+          <mat-icon color="#D18D1F;">warning</mat-icon>
+          <span style="color: #D18D1F;" >UPDATE NÖTIG</span>
+        </div>
+        <!--
+        <div class="state up-to-date adler-label" *ngSwitchCase="'up-to-date'">
+          <x-icon style="color: #66AA66;" name="check" iconset="assets/icons.svg" ></x-icon>
+          <span>vor 5 Minuten aktualisiert</span>
+        </div>
+        <div class="state looking-for-updates adler-label" *ngSwitchCase="'looking-for-updates'">
+          <x-throbber style="color: #6CAACC;" ></x-throbber>
+          <span>Suche nach Updates...</span>
+        </div>
+        <div class="state updating adler-label" *ngSwitchCase="'updating'">
+          <x-throbber style="color: #D18D1F;" ></x-throbber>
+          <span>56% | 5 MBit/s</span>
+        </div>
+        <div class="state queued adler-label" *ngSwitchCase="'queued'">
+          <x-icon  style="color: #D18D1F;" name="update" iconset="assets/icons.svg" ></x-icon>
+          <span>Eingereiht</span>
+        </div>
+        -->
+      </ng-container>
+    </div>
+    <div class="modset column-wrapper">
+      <div class="adler-label">
+        Ausgewähltes Modset
+      </div>
+      <div class="big-text">
+        {{model.modset.name}}
+      </div>
+    </div>
+    <div class="update column-wrapper"  [ngSwitch]="model.state">
+      <!--
+      <x-button *ngSwitchCase="'update-needed'" skin="iconic">
+        <x-icon name="get-app" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+      <x-button *ngSwitchCase="'updating'" skin="iconic">
+        <x-icon name="pause" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+      <x-button *ngSwitchCase="'queued'" skin="iconic">
+        <x-icon name="close" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+      -->
+    </div>
+    <div class="play column-wrapper">
+      <!--
+      <x-button *ngIf="expanded">
+        <x-label class="big-text">Starten</x-label>
+        <x-icon name="play-arrow" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+      <x-button skin="iconic" *ngIf="!expanded">
+        <x-icon name="play-arrow" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+    -->
+    </div>
+    <div class="settings column-wrapper">
+      <!--
+      <x-button (click)="contextMenuShown = true;" skin="iconic">
+        <x-icon name="more-vert" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+      <x-menu *ngIf="contextMenuShown">
+        <div (click)="contextMenuShown = false;"></div>
+        <x-menuitem>
+          <x-icon  name="settings" iconset="assets/icons.svg" ></x-icon>
+          <x-label>Repo Einstellungen</x-label>
+        </x-menuitem>
+        <x-menuitem>
+          <x-icon name="refresh" iconset="assets/icons.svg" ></x-icon>
+          <x-label>Nach Updates suchen</x-label>
+        </x-menuitem>
+      </x-menu>
+    -->
+    </div>
+  </mat-expansion-panel-header>
+
+  <div class="heading">
+    <span class="adler-label">Events</span>
+    <x-icon class="adler-label" name="help" iconset="assets/icons.svg"></x-icon>
+  </div>
+  <div class="events">
+    <app-modset *ngFor="let event of model.events" [model]="event" [selected]="(event == model.modset)" (onSelect)="onSelectModset($event)"></app-modset>
+  </div>
+  <div *ngIf="model.modsets.length > 0" class="heading">
+    <span class="adler-label">Modsets</span>
+    <x-icon class="adler-label" name="help" iconset="assets/icons.svg"></x-icon>
+  </div>
+  <div *ngIf="model.modsets.length > 0" class="modsets">
+    <app-modset *ngFor="let modset of model.modsets" [model]="modset"  [selected]="(modset == model.modset)"  (onSelect)="onSelectModset($event)"></app-modset>
+  </div>
+  <button mat-button>
+      <mat-icon>add</mat-icon>
+      <span>Modset hinzufügen</span>
+  </button>
+</mat-expansion-panel>
+
+<!--
+<div class="repository">
+  <div class="header" [ngClass]="{'expanded': expanded }">
+    <div class="download-progress" *ngIf="data.state === 'updating'">
+      <div style="width:56%"></div>
+    </div>
+    <div class="picture" (click)="expanded = !expanded">
+      <img  src={{data.picture}} />
+    </div>
+    <div class="general-info column-wrapper">
+      <div class="type adler-label">
+        <span>
+          Repo
+        </span>
+      </div>
+      <div class="name big-text">
+        {{data.name}}
+      </div>
+      <ng-container [ngSwitch]="data.state">
+        <div class="state update-needed adler-label" *ngSwitchCase="'update-needed'">
+          <x-icon style="color: #D18D1F;" name="warning" iconset="assets/icons.svg" ></x-icon>
+          <span style="color: #D18D1F;" >UPDATE NÖTIG</span>
+        </div>
+        <div class="state up-to-date adler-label" *ngSwitchCase="'up-to-date'">
+          <x-icon style="color: #66AA66;" name="check" iconset="assets/icons.svg" ></x-icon>
+          <span>vor 5 Minuten aktualisiert</span>
+        </div>
+        <div class="state looking-for-updates adler-label" *ngSwitchCase="'looking-for-updates'">
+          <x-throbber style="color: #6CAACC;" ></x-throbber>
+          <span>Suche nach Updates...</span>
+        </div>
+        <div class="state updating adler-label" *ngSwitchCase="'updating'">
+          <x-throbber style="color: #D18D1F;" ></x-throbber>
+          <span>56% | 5 MBit/s</span>
+        </div>
+        <div class="state queued adler-label" *ngSwitchCase="'queued'">
+          <x-icon  style="color: #D18D1F;" name="update" iconset="assets/icons.svg" ></x-icon>
+          <span>Eingereiht</span>
+        </div>
+      </ng-container>
+    </div>
+    <div class="modset column-wrapper">
+      <div class="adler-label">
+        Ausgewähltes Modset
+      </div>
+      <div class="big-text">
+        {{data.modset.name}}
+      </div>
+    </div>
+    <div class="update column-wrapper"  [ngSwitch]="data.state">
+      <x-button *ngSwitchCase="'update-needed'" skin="iconic">
+        <x-icon name="get-app" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+      <x-button *ngSwitchCase="'updating'" skin="iconic">
+        <x-icon name="pause" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+      <x-button *ngSwitchCase="'queued'" skin="iconic">
+        <x-icon name="close" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+    </div>
+    <div class="play column-wrapper">
+      <x-button *ngIf="expanded">
+        <x-label class="big-text">Starten</x-label>
+        <x-icon name="play-arrow" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+      <x-button skin="iconic" *ngIf="!expanded">
+        <x-icon name="play-arrow" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+    </div>
+    <div class="settings column-wrapper">
+      <x-button (click)="contextMenuShown = true;" skin="iconic">
+        <x-icon name="more-vert" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+      <x-menu *ngIf="contextMenuShown">
+        <div (click)="contextMenuShown = false;"></div>
+        <x-menuitem>
+          <x-icon  name="settings" iconset="assets/icons.svg" ></x-icon>
+          <x-label>Repo Einstellungen</x-label>
+        </x-menuitem>
+        <x-menuitem>
+          <x-icon name="refresh" iconset="assets/icons.svg" ></x-icon>
+          <x-label>Nach Updates suchen</x-label>
+        </x-menuitem>
+      </x-menu>
+    </div>
+  </div>
+  -->
+  <!--
+  <div class="body" *ngIf="expanded">
+  <div class="server-row">
+    <div class="column-wrapper">
+      <p class="adler-label">Ausgewählter Server</p>
+      <x-select>
+        <x-menu>
+          <x-menuitem value="arma.gruppe-adler.de:2302" toggled>
+            <x-label>arma.gruppe-adler.de:2302</x-label>
+          </x-menuitem>
+
+          <x-menuitem value="arma.gruppe-adler.de:2342">
+            <x-label>arma.gruppe-adler.de:2342</x-label>
+          </x-menuitem>
+
+          <x-menuitem value="arma.gruppe-adler.de:2402">
+            <x-label>arma.gruppe-adler.de:2402</x-label>
+          </x-menuitem>
+
+          <x-menuitem value="arma.gruppe-adler.de:2602">
+            <x-label>arma.gruppe-adler.de:2602</x-label>
+          </x-menuitem>
+
+          <x-menuitem value="arma.gruppe-adler.de:2382">
+            <x-label>arma.gruppe-adler.de:2382</x-label>
+          </x-menuitem>
+        </x-menu>
+      </x-select>
+    </div>
+    <div class="join-wrapper">
+      <x-button>
+        <x-label class="big-text">Beitreten</x-label>
+        <x-icon name="play-arrow" iconset="assets/icons.svg" ></x-icon>
+      </x-button>
+    </div>
+  </div>
+
+  </div>
+</div>
+-->
