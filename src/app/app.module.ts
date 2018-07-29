@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { MaterialLoaderModule } from './materialloader.module';
 
 
 import { AppComponent } from './app.component';
+import { MenubarComponent } from './menubar/menubar.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenubarComponent,
   ],
   imports: [
     BrowserModule,
@@ -17,6 +19,9 @@ import { AppComponent } from './app.component';
     MaterialLoaderModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }
