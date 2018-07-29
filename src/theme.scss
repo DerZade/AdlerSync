@@ -8,25 +8,25 @@
 
 
 $adler-primary: (
-    50: #D18D1F,
-    100: #D18D1F,
-    200: #D18D1F,
-    300: #D18D1F,
-    400: #D18D1F,
-    500: #D18D1F,
-    600: #D18D1F,
-    700: #D18D1F,
-    800: #D18D1F,
-    900: #D18D1F,
-    A100: #D18D1F,
-    A200: #D18D1F,
-    A400: #D18D1F,
-    A700: #D18D1F,
+    50: #faf9e5,
+    100: #f4eebe,
+    200: #ebe294,
+    300: #e4d76c,
+    400: #e0d14f,
+    500: #dbca32,
+    600: #d8b92e,
+    700: #d5a327,
+    800: #d18d1f, //Adler Orange
+    900: #c96812,
+    A100: #d18d1f,
+    A200: #d18d1f,
+    A400: #d18d1f,
+    A700: #d18d1f,
     contrast: (
-        50: white,
-        100: white,
-        200: white,
-        300: white,
+        50: black,
+        100: black,
+        200: black,
+        300: black,
         400: white,
         500: white,
         600: white,
@@ -41,25 +41,25 @@ $adler-primary: (
 );
 
 $adler-accent: (
-    50: #2D9CDB,
-    100: #2D9CDB,
-    200: #2D9CDB,
-    300: #2D9CDB,
-    400: #2D9CDB,
-    500: #2D9CDB,
-    600: #2D9CDB,
-    700: #2D9CDB,
-    800: #2D9CDB,
-    900: #2D9CDB,
-    A100: #2D9CDB,
-    A200: #2D9CDB,
-    A400: #2D9CDB,
-    A700: #2D9CDB,
+    50: #eaf4eb,
+    100: #cde4ce,
+    200: #aed3b0,
+    300: #8fc392,
+    400: #7ab67c,
+    500: #66aa66, //Gastspieler Grün
+    600: #5d9b5d,
+    700: #528952,
+    800: #497848,
+    900: #395938,
+    A100: #66aa66,
+    A200: #66aa66,
+    A400: #66aa66,
+    A700: #66aa66,
     contrast: (
-        50: white,
-        100: white,
-        200: white,
-        300: white,
+        50: black,
+        100: black,
+        200: black,
+        300: black,
         400: white,
         500: white,
         600: white,
@@ -72,22 +72,98 @@ $adler-accent: (
         A700: white,
     )
 );
-  
+
+$adler-warn: (
+    50: #fce5f1,
+    100: #f8bedc,
+    200: #f593c5,
+    300: #f466ac,
+    400: #f44297,
+    500: #f51482,
+    600: #e3157e,
+    700: #cc1577,
+    800: #b61471,
+    900: #8F1167, //Führungs Purpur
+    A100: #8F1167,
+    A200: #8F1167,
+    A400: #8F1167,
+    A700: #8F1167,
+    contrast: (
+        50: black,
+        100: black,
+        200: black,
+        300: black,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: white,
+        A400: white,
+        A700: white,
+    )
+);
+
+// custom background and foreground palettes
+$custom-dark-theme-background: (
+    status-bar: red,
+    app-bar:    red,
+    background: black, //changed
+    hover:      #353535,
+    card:       #333333,
+    dialog:     red,
+    disabled-button: red,
+    raised-button: red,
+    focused-button: red,
+    selected-button: red,
+    selected-disabled-button: red,
+    disabled-button-toggle: red,
+    unselected-chip: #414243,
+    disabled-list-option: red
+);
+
+$custom-dark-theme-foreground: (
+  base:              white,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-secondary-text,
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+// instead of creating a theme with mat-light-theme like a sane person, we will create our own theme-creating function that lets us apply our own foreground and background palettes.
+@function create-custom-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $custom-dark-theme-foreground,
+    background: $custom-dark-theme-background
+  );
+}
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$adler-dark-primary: mat-palette($adler-primary);
-$adler-dark-accent:  mat-palette($adler-accent);
-
-// The warn palette is optional (defaults to red).
+$adler-primary: mat-palette($adler-primary, 800);
+$adler-accent:  mat-palette($adler-accent, 500);
+$adler-warn:  mat-palette($adler-warn, 900);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$adler-dark-theme: mat-dark-theme($adler-dark-primary, $adler-dark-accent);
+$adler-dark-theme: create-custom-theme($adler-primary, $adler-accent, $adler-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($adler-dark-theme);
-
-// @import '~@angular/material/prebuilt-themes/purple-green.css';

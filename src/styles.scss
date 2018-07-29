@@ -1,13 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
 html {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  font-family: 'Roboto', sans-serif;
   
   body {
     margin: 0px;
     color: white;
-    background-color: black;
+    // background-color: black;
   }
 }  
+
+
+.adler-label {
+  color: #6d6d6d;
+  margin: 0px;
+  font-size: 10px;
+  height: 10px;
+  line-height: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+x-icon.adler-label {
+  color: #6d6d6d;
+  margin: 0px;
+  font-size: 10px;
+  height: 10px;
+  width: 10px;
+}
