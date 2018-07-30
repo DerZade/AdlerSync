@@ -16,7 +16,7 @@ html {
 }  
 
 
-.adler-label {
+span.adler-label {
   color: #6d6d6d;
   margin: 0px;
   font-size: 10px;
@@ -26,10 +26,35 @@ html {
   text-transform: uppercase;
 }
 
-x-icon.adler-label {
+mat-icon.adler-label {
   color: #6d6d6d;
   margin: 0px;
   font-size: 10px;
   height: 10px;
   width: 10px;
+}
+
+.adler-big-text {
+  color: white;
+  margin: 4px 0px;
+  font-size: 16px;
+  height: 16px;
+  line-height: 16px;
+}
+
+.adler-heading {
+  display: flex;
+  margin-bottom: 2px;
+  margin-top: 10px;
+  align-content: center;
+  width: 100%;
+}
+
+
+mat-expansion-panel-header {
+  background-color: #414243;
+  padding: 0px !important;
+}
+mat-expansion-panel-header:hover {
+  background-color: #414243 !important;
 }
