@@ -1,15 +1,24 @@
 .modset {
   margin-bottom: 10px;
+  border-radius: 5px;
 
   .mat-expansion-panel-header {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    &.expanded {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
 
     .mat-expansion-panel-header-title {
       align-items: center;
       color: white;
+      margin-left: 10px;
     }
   
     .mat-expansion-panel-header-description {
-      margin-right: 0px;
+      margin-right: 10px;
       justify-content: flex-end;
       align-items: center;
   

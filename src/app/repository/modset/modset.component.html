@@ -1,11 +1,11 @@
 <mat-expansion-panel disabled hideToggle [expanded]="expanded ? 'true' : undefined" class="modset">
 
-  <mat-expansion-panel-header>
+  <mat-expansion-panel-header [class.expanded]="!expanded">
     <mat-panel-title>
-      <mat-radio-button [value]="selected ? 1 : 0" (click)="onSelectClicked($event);"></mat-radio-button>
+      <mat-radio-button [checked]="selected ? true : undefined" (click)="onSelectClicked($event);"></mat-radio-button>
       <span>{{model.name}}</span>
       <button mat-icon-button (click)="expanded = !expanded">
-        <mat-icon>{{expanded ? 'expand_less' : 'expand_more'}}</mat-icon>
+        <mat-icon>{{expanded ? 'arrow_drop_up' : 'arrow_drop_down'}}</mat-icon>
       </button>
     </mat-panel-title>
     <mat-panel-description>
