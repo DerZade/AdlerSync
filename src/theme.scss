@@ -7,7 +7,7 @@
 @include mat-core();
 
 
-$adler-primary: (
+$adler-warn: (
     50: #faf9e5,
     100: #f4eebe,
     200: #ebe294,
@@ -73,21 +73,21 @@ $adler-accent: (
     )
 );
 
-$adler-warn: (
-    50: #fce5f1,
-    100: #f8bedc,
-    200: #f593c5,
-    300: #f466ac,
-    400: #f44297,
-    500: #f51482,
-    600: #e3157e,
-    700: #cc1577,
-    800: #b61471,
-    900: #8F1167, //Führungs Purpur
-    A100: #8F1167,
-    A200: #8F1167,
-    A400: #8F1167,
-    A700: #8F1167,
+$adler-primary: (
+    50: #e2f5fd,
+    100: #b5e5f9,
+    200: #87d4f5,
+    300: #5cc3f0,
+    400: #41b6ed,
+    500: #32a9ea,
+    600: #2d9bdb, //primary
+    700: #2788c7,
+    800: #2477b3,
+    900: #1c5891, 
+    A100: #2d9bdb,
+    A200: #2d9bdb,
+    A400: #2d9bdb,
+    A700: #2d9bdb,
     contrast: (
         50: black,
         100: black,
@@ -111,7 +111,7 @@ $custom-dark-theme-background: (
     status-bar: red,
     app-bar:    red,
     background: black, //changed
-    hover:      #353535,
+    hover:      #414243,
     card:       #333333,
     dialog:     red,
     disabled-button: red,
@@ -156,9 +156,9 @@ $custom-dark-theme-foreground: (
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$adler-primary: mat-palette($adler-primary, 800);
+$adler-primary: mat-palette($adler-primary, 600);
 $adler-accent:  mat-palette($adler-accent, 500);
-$adler-warn:  mat-palette($adler-warn, 900);
+$adler-warn:  mat-palette($adler-warn, 800);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $adler-dark-theme: create-custom-theme($adler-primary, $adler-accent, $adler-warn);

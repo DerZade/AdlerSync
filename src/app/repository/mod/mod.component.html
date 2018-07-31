@@ -1,9 +1,9 @@
 <mat-chip disabled>
   <ng-container [ngSwitch]="model.state">
     <mat-icon color="accent" *ngSwitchCase="'updated'">check</mat-icon>
-    <mat-icon color="primary" *ngSwitchCase="'update-needed'">arrow_drop_up</mat-icon>
-    <mat-icon color="primary" *ngSwitchCase="'queued'">update</mat-icon>
-    <mat-spinner [diameter]="24" *ngSwitchCase="'updating'" color="primary" ></mat-spinner>
+    <mat-icon color="warn" *ngSwitchCase="'update-needed'">arrow_drop_up</mat-icon>
+    <mat-icon color="warn" *ngSwitchCase="'queued'">update</mat-icon>
+    <mat-spinner  color="warn" *ngSwitchCase="'updating'" [diameter]="24" ></mat-spinner>
   </ng-container>
   <span>{{model.name}}</span>
 </mat-chip>
