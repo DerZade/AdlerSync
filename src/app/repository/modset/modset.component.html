@@ -1,6 +1,6 @@
 <mat-expansion-panel disabled hideToggle [expanded]="expanded ? 'true' : undefined" class="modset">
 
-  <mat-expansion-panel-header [class.expanded]="!expanded">
+  <mat-expansion-panel-header [class.collapsed]="!expanded" [expandedHeight]="'40px'" [collapsedHeight]="'40px'">
     <mat-panel-title>
       <mat-radio-button color="primary" [checked]="selected ? true : undefined" (click)="onSelectClicked($event);"></mat-radio-button>
       <span>{{model.name}}</span>
