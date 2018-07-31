@@ -55,6 +55,21 @@ mat-expansion-panel-header {
   background-color: #414243;
   padding: 0px !important;
 }
-mat-expansion-panel-header:hover {
+
+mat-expansion-panel-header:hover,
+mat-expansion-panel-header:focus {
   background-color: #414243 !important;
+}
+
+.mat-expansion-panel-content > .mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+.mat-content {
+  height: 100%;
+  // background-color: rgba(0,255,0,0.1);
+}
+
+.mat-form-field-infix {
+  border-top: none !important;
 }
