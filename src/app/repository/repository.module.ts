@@ -6,6 +6,7 @@ import { ModsetComponent } from './modset/modset.component';
 import { ModComponent } from './mod/mod.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialLoaderModule } from '../materialloader.module';
+import { HelperComponent } from '../helper/helpercomponent';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { MaterialLoaderModule } from '../materialloader.module';
   declarations: [
     RepositoryComponent,
     ModComponent,
-    ModsetComponent
+    ModsetComponent,
+    HelperComponent
   ],
   providers: [
     RepositoryService

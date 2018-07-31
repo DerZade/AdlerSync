@@ -69,7 +69,7 @@
 
     <div class="heading">
       <span class="adler-label">Ausgewählter Server</span>
-      <mat-icon class="adler-label">help</mat-icon>
+      <app-helper text="Hier kannst du den Server wählen auf den du joinen willst."></app-helper>
     </div>
     <div class="server">
         <mat-form-field>
@@ -89,7 +89,7 @@
 
     <div class="heading">
       <span class="adler-label">Events</span>
-      <mat-icon class="adler-label">help</mat-icon>
+      <app-helper text="Events sind vom Repo vorgegeben. Demetsprechen können sie nicht geändert werden."></app-helper>
     </div>
     <div>
       <app-modset *ngFor="let event of model.events" [model]="event" [selected]="(event == model.modset)" (onSelect)="onSelectModset($event)"></app-modset>
@@ -97,7 +97,7 @@
 
     <div *ngIf="model.modsets.length > 0" class="heading">
       <span class="adler-label">Modsets</span>
-      <mat-icon class="adler-label">help</mat-icon>
+      <app-helper text="Modsets sind deine eigenen Gruppierungen aus Mods."></app-helper>
     </div>
     <div *ngIf="model.modsets.length > 0" class="modsets">
       <app-modset *ngFor="let modset of model.modsets" [model]="modset" [selected]="(modset == model.modset)"  (onSelect)="onSelectModset($event)"></app-modset>
