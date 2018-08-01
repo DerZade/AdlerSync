@@ -23,7 +23,7 @@
             </div>
             <div *ngSwitchCase="'up-to-date'">
               <mat-icon color="accent" class="adler-label">check</mat-icon>
-              <span class="adler-label">vor 5 Minuten aktualisiert</span>
+              <span class="adler-label">{{upToDateText()}}</span>
             </div>
             <div *ngSwitchCase="'looking-for-updates'">
               <mat-spinner  color="primary" [diameter]="12" style="margin-top: -1px;"></mat-spinner>

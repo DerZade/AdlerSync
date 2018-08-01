@@ -23,4 +23,19 @@ export class RepositoryComponent implements OnInit {
     this.model.modset = modset;
   }
 
+  public upToDateText(): string {
+    var now: Date = new Date();
+    var synced: Date = this.model.lastSynced;
+
+    var durationMili: number = now.valueOf() - synced.valueOf();
+
+    var durationMinutes: number = Math.floor(durationMili / 60000);
+
+    if (durationMinutes < 2) {
+      return 'gerade eben aktualisiert';
+    }
+
+    return 'vor '+ durationMinutes + ' Minuten aktualisiert';
+  }
+
 }
