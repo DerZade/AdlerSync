@@ -25,7 +25,11 @@ import { PreferencesService } from './services/preferences.service';
     BrowserAnimationsModule,
     MaterialLoaderModule
   ],
-  providers: [],
+  providers: [
+    ArmaService,
+    DownloadService,
+    PreferencesService
+  ],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
