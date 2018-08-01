@@ -13,16 +13,19 @@ export class Repository {
   public modsets: Modset[] = [];
   public events: Modset[] = [];
 
+  public expanded: boolean = true;
+
   constructor(n: string, a: string, lookForUpdates: boolean = false) {
     this.name = n;
     this.autoconfigPath = a;
 
     if (lookForUpdates) {
+      this.state = 'looking-for-updates';
       //TODO: Look for Updates
     }
 
-    this.events.push(new Modset('Event 1', this));
-    this.events.push(new Modset('Event 2', this));
+    this.events.push(new Modset('Event 1', this.id));
+    this.events.push(new Modset('Event 2', this.id));
 
     this.modset=this.events[0];
 

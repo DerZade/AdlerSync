@@ -1,11 +1,13 @@
-import { Repository } from './repository';
-
 export class Mod {
-  constructor(
-    public repo: Repository,
-    public state: string = '',
-    public name: string = 'Mod',
-    public path: string = ''
-  ) {}
+
+  public repoId: number;
+  public name: string = 'Mod';
+  public state: string = 'up-to-date';
+  public path: string = '';
+
+  constructor(repo: number, n: string) {
+    this.repoId = repo;
+    this.name = n;
+  }
 
 }

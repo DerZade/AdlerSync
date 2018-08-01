@@ -7,7 +7,6 @@ import { Modset } from '../modset';
   styleUrls: ['./modset.component.scss']
 })
 export class ModsetComponent implements OnInit {
-  expanded: boolean = false;
 
   @Input() model: Modset;
   @Input() selected: boolean;

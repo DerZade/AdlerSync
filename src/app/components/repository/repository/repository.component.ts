@@ -10,7 +10,6 @@ import { Modset } from '../modset';
 })
 export class RepositoryComponent implements OnInit {
   contextMenuShown: boolean = false;
-  expanded: boolean = true;
 
   @Input() model: Repository;
   constructor(public repositoryService: RepositoryService) {

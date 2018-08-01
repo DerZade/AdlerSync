@@ -1,5 +1,5 @@
-<mat-expansion-panel disabled hideToggle expanded class="repository" [expanded]="expanded ? 'true' : undefined">
-  <mat-expansion-panel-header [expandedHeight]="'60px'" [collapsedHeight]="'60px'" [class.collapsed]="!expanded">
+<mat-expansion-panel disabled hideToggle class="repository" [expanded]="model.expanded ? 'true' : undefined">
+  <mat-expansion-panel-header [expandedHeight]="'60px'" [collapsedHeight]="'60px'" [class.collapsed]="!model.expanded">
     <div class="header">
       <div class="download-progress" *ngIf="model.state === 'updating'">
         <div style="width:56%"></div>
@@ -11,7 +11,7 @@
         </svg>
         <img *ngIf="model.picture != ''; else defaultpicture" />
         <ng-template #defaultpicture>
-          <div class="defaultpicture" (click)="expanded = !expanded;"></div>
+          <div class="defaultpicture" (click)="model.expanded = !model.expanded;"></div>
         </ng-template>
         <div>
           <span class="adler-label">Repo</span>
