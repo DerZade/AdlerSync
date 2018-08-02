@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RepositoryService } from '../repository.service';
 import { Repository } from '../repository';
-import { Modset } from '../modset';
 
 @Component({
   selector: 'app-repository',
@@ -16,10 +15,6 @@ export class RepositoryComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  public onSelectModset(modset: Modset) {
-    this.model.modset = modset;
   }
 
   public upToDateText(): string {

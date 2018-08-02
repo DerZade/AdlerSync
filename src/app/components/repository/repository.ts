@@ -26,6 +26,7 @@ export class Repository {
 
     this.events.push(new Modset('Event 1', this.id));
     this.events.push(new Modset('Event 2', this.id));
+    this.modsets.push(new Modset('Modset 1', this.id));
 
     this.modset=this.events[0];
 

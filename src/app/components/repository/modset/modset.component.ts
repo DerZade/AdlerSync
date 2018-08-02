@@ -9,14 +9,8 @@ import { Modset } from '../modset';
 export class ModsetComponent implements OnInit {
 
   @Input() model: Modset;
-  @Input() selected: boolean;
 
-  @Output() onSelect = new EventEmitter<Modset>();
   constructor() {
-  }
-
-  public onSelectClicked(): void {
-    this.onSelect.emit(this.model);
   }
 
   ngOnInit() {

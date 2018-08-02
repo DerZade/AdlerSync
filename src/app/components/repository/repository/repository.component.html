@@ -87,21 +87,23 @@
         </button>
     </div>
 
-    <div class="heading">
-      <span class="adler-label">Events</span>
-      <app-helper text="Events sind vom Repo vorgegeben. Demetsprechen können sie nicht geändert werden."></app-helper>
-    </div>
-    <div>
-      <app-modset *ngFor="let event of model.events" [model]="event" [selected]="(event == model.modset)" (onSelect)="onSelectModset($event)"></app-modset>
-    </div>
+    <mat-radio-group [(ngModel)]="model.modset">
+      <div class="heading">
+        <span class="adler-label">Events</span>
+        <app-helper text="Events sind vom Repo vorgegeben. Demetsprechen können sie nicht geändert werden."></app-helper>
+      </div>
+      <div>
+        <app-modset *ngFor="let event of model.events" [model]="event"></app-modset>
+      </div>
 
-    <div *ngIf="model.modsets.length > 0" class="heading">
-      <span class="adler-label">Modsets</span>
-      <app-helper text="Modsets sind deine eigenen Gruppierungen aus Mods."></app-helper>
-    </div>
-    <div *ngIf="model.modsets.length > 0" class="modsets">
-      <app-modset *ngFor="let modset of model.modsets" [model]="modset" [selected]="(modset == model.modset)"  (onSelect)="onSelectModset($event)"></app-modset>
-    </div>
+      <div *ngIf="model.modsets.length > 0" class="heading">
+        <span class="adler-label">Modsets</span>
+        <app-helper text="Modsets sind deine eigenen Gruppierungen aus Mods."></app-helper>
+      </div>
+      <div *ngIf="model.modsets.length > 0" class="modsets">
+        <app-modset *ngFor="let modset of model.modsets" [model]="modset"></app-modset>
+      </div>
+    </mat-radio-group>
 
     <div class="add">
       <button mat-button>

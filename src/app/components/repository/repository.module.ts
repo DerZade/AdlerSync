@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RepositoryService } from './repository.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { MaterialLoaderModule } from '../../materialloader.module';
 
 import { RepositoryComponent } from './repository/repository.component';
@@ -13,7 +14,8 @@ import { HelperComponent } from '../helper/helpercomponent';
   imports: [
     CommonModule,
     HttpClientModule,
-    MaterialLoaderModule
+    MaterialLoaderModule,
+    FormsModule
   ],
   declarations: [
     RepositoryComponent,

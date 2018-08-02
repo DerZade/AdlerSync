@@ -1,7 +1,7 @@
 <mat-expansion-panel disabled hideToggle [expanded]="model.expanded ? 'true' : undefined" class="modset">
   <mat-expansion-panel-header [class.collapsed]="!model.expanded" [expandedHeight]="'40px'" [collapsedHeight]="'40px'">
     <mat-panel-title>
-      <mat-radio-button color="primary" [checked]="selected ? true : undefined" (click)="onSelectClicked($event);"></mat-radio-button>
+      <mat-radio-button color="primary" [value]="model"></mat-radio-button>
       <span>{{model.name}}</span>
       <button mat-icon-button (click)="model.expanded = !model.expanded">
         <mat-icon>{{model.expanded ? 'arrow_drop_up' : 'arrow_drop_down'}}</mat-icon>
@@ -9,7 +9,7 @@
     </mat-panel-title>
     <mat-panel-description>
       <span>Aktuell halten</span>
-      <mat-slide-toggle color="primary"></mat-slide-toggle>
+      <mat-slide-toggle color="primary" [(ngModel)]="model.keepUpdated"></mat-slide-toggle>
     </mat-panel-description>
   </mat-expansion-panel-header>
 
